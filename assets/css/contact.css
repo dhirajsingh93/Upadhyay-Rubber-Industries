@@ -1,4 +1,34 @@
 /* Contact page layout and page-specific refinements. */
+
+/* Keep enquiry feedback visible and distinguishable from the form fields. */
+#contactFormNote {
+    margin-top: 14px;
+    font-size: 14px;
+    line-height: 1.7;
+    font-weight: 500;
+}
+
+#contactFormNote.is-success {
+    padding: 12px 15px;
+    border: 1px solid #bbf7d0;
+    border-radius: 8px;
+    background: #f0fdf4;
+    color: #15803d;
+}
+
+#contactFormNote.is-error {
+    padding: 12px 15px;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    background: #fef2f2;
+    color: #b91c1c;
+}
+
+#contact-form button[type="submit"]:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
 .contact-page-section {
     --contact-navy: #082d55;
     --contact-blue: #1766ad;

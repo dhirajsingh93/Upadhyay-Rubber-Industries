@@ -9,6 +9,7 @@
     form.addEventListener("submit", (event) => {
         event.preventDefault();
 
+        // Build a mailto message from the validated form fields without sending data to a server.
         const fields = new FormData(form);
         const subject = `Website enquiry: ${fields.get("interest") || "General"}`;
         const message = [
