@@ -1,25 +1,21 @@
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@5/dist/email.min.js"></script>
-
-
+// EmailJS Contact Form Handler for Upadhyay Rubber Industries
+// Keep in sync with assets/js/contact.js
 document.addEventListener("DOMContentLoaded", function () {
-    // ========================================
-    // EMAILJS CONFIGURATION — APNI DETAILS DAALO
-    // ========================================
-    const PUBLIC_KEY = "VEleHEvNxASP5mJdW";
-    const SERVICE_ID = "service_6exifar";
-    const TEMPLATE_ID = "template_px4c71p";
+    const PUBLIC_KEY = "CH5sJMGp9EhCsCWHs";
+    const SERVICE_ID = "service_k0ale4h";
+    const TEMPLATE_ID = "template_0o3yzik";
 
-    // Initialize EmailJS
-    emailjs.init({
-        publicKey: PUBLIC_KEY
-    });
+    if (typeof emailjs !== "undefined") {
+        emailjs.init({
+            publicKey: PUBLIC_KEY
+        });
+    }
 
     const form = document.getElementById("contact-form");
-    const submitButton = form?.querySelector('button[type="submit"]');
+    const submitButton = form ? form.querySelector('button[type="submit"]') : null;
     const statusMessage = document.getElementById("contactFormNote");
 
     if (!form || !submitButton || !statusMessage) {
-        console.error("Contact form elements not found.");
         return;
     }
 
@@ -28,50 +24,55 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", async function (event) {
         event.preventDefault();
 
-        // Prevent duplicate submissions
         if (submitButton.disabled) return;
 
-        // Reset previous message
         statusMessage.textContent = "";
         statusMessage.classList.remove("is-success", "is-error");
 
-        // Show loading state
+        if (typeof emailjs === "undefined") {
+            statusMessage.textContent = "✕ Email service is currently unavailable. Please contact us directly via WhatsApp (+91 88104 22099) or email (info@upadhyayrubber.com).";
+            statusMessage.classList.add("is-error");
+            return;
+        }
+
         submitButton.disabled = true;
         submitButton.innerHTML = "Sending enquiry...";
-
-        statusMessage.textContent = "Sending your enquiry. Please wait.";
+        statusMessage.textContent = "Sending your enquiry. Please wait...";
 
         try {
-            // Send all named form fields through EmailJS
-            await emailjs.sendForm(
+            const formData = new FormData(form);
+            const templateParams = {
+                name: formData.get("name") || "",
+                from_name: formData.get("name") || "",
+                company: formData.get("company") || "Not provided",
+                email: formData.get("email") || "",
+                from_email: formData.get("email") || "",
+                reply_to: formData.get("email") || "",
+                phone: formData.get("phone") || "Not provided",
+                contact_number: formData.get("phone") || "Not provided",
+                interest: formData.get("interest") || "General",
+                message: formData.get("message") || ""
+            };
+
+            await emailjs.send(
                 SERVICE_ID,
                 TEMPLATE_ID,
-                form,
-                {
-                    publicKey: PUBLIC_KEY
-                }
+                templateParams,
+                PUBLIC_KEY
             );
 
-            // SUCCESS MESSAGE
             statusMessage.textContent =
                 "✓ Enquiry sent successfully! Thank you for contacting Upadhyay Rubber Industry. Our team will get back to you soon.";
-
             statusMessage.classList.add("is-success");
-
-            // Clear the form after successful submission
             form.reset();
 
         } catch (error) {
             console.error("EmailJS Error:", error);
-
-            // ERROR MESSAGE
             statusMessage.textContent =
-                "✕ Sorry, your enquiry could not be sent. Please try again or contact us directly by email.";
-
+                "✕ Sorry, your enquiry could not be sent. Please try again or contact us directly via WhatsApp or info@upadhyayrubber.com.";
             statusMessage.classList.add("is-error");
 
         } finally {
-            // Restore button
             submitButton.disabled = false;
             submitButton.innerHTML = originalButtonText;
         }
