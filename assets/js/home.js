@@ -6,24 +6,24 @@
 
             /* ---------- products ---------- */
             const items = [
-                ["dust-cover", "Dust Cover", "Neoprene", "Keeps dust and moisture out of joints and rods."],
-                ["packing-seal", "Packing Seal", "NBR", "Oil-resistant sealing for industrial assemblies."],
-                ["gasket", "Gasket", "Silicone", "Flexible sealing across a wide temperature range."],
-                ["o-ring", "O-Ring", "Silicone", "Round-section seal for static and moving joints."],
-                ["oil-seal", "Oil Seal", "HNBR", "Holds lubricant in and copes with heat and chemicals."],
-                ["end-cap-gasket", "End Cap Gasket", "EPDM", "Weather and ozone resistant end sealing."],
-                ["rod-bush", "Rod Bush", "Natural rubber", "Absorbs vibration and shock at mounting points."],
-                ["rubber-boot", "Rubber Boot", "Neoprene", "Flexible, bellows-style protective cover."],
-                ["sleeve", "Sleeve", "PVC", "Extruded profile cut to your length."],
-                ["hose", "Hose", "HNBR", "Moulded bend for fluid and air lines."],
-                ["grommet", "Grommet", "Neoprene", "Protects cables and lines passing through panels."],
-                ["bush", "Bush", "Natural rubber", "Simple isolation bush for vibration control."]
+                ["dust-cover", "Dust Cover", "Neoprene", "Keeps dust and moisture out of joints and rods.", "moulded-components"],
+                ["packing-seal", "Packing Seal", "NBR", "Oil-resistant sealing for industrial assemblies.", "oil-packing-seals"],
+                ["gasket", "Gasket", "Silicone", "Flexible sealing across a wide temperature range.", "rubber-gaskets"],
+                ["o-ring", "O-Ring", "Silicone", "Round-section seal for static and moving joints.", "o-rings-seal-kits"],
+                ["oil-seal", "Oil Seal", "HNBR", "Holds lubricant in and copes with heat and chemicals.", "oil-packing-seals"],
+                ["end-cap-gasket", "End Cap Gasket", "EPDM", "Weather and ozone resistant end sealing.", "rubber-gaskets"],
+                ["rod-bush", "Rod Bush", "Natural rubber", "Absorbs vibration and shock at mounting points.", "rubber-bushes"],
+                ["rubber-boot", "Rubber Boot", "Neoprene", "Flexible, bellows-style protective cover.", "moulded-components"],
+                ["sleeve", "Sleeve", "PVC", "Extruded profile cut to your length.", "extruded-profiles"],
+                ["hose", "Hose", "HNBR", "Moulded bend for fluid and air lines.", "extruded-profiles"],
+                ["grommet", "Grommet", "Neoprene", "Protects cables and lines passing through panels.", "rubber-bushes"],
+                ["bush", "Bush", "Natural rubber", "Simple isolation bush for vibration control.", "rubber-bushes"]
             ];
             const sec = $("#products"), view = $("#prView"), track = $("#prTrack"),
                 bar = $("#prBar"), meter = $(".pr-line"), wide = matchMedia("(min-width:901px)");
 
-            $(".pr-cta").insertAdjacentHTML("beforebegin", items.map(([f, n, m, d]) =>
-                `<a class="pc" href="#contact"><img src="images/${f}.jpg" alt="${n}, ${m}" loading="lazy" width="520" height="416"><div><em>${m}</em><h3>${n}</h3><p>${d}</p><span class="pc-go" aria-hidden="true">↗</span></div></a>`
+            $(".pr-cta").insertAdjacentHTML("beforebegin", items.map(([f, n, m, d, cat]) =>
+                `<a class="pc" href="./products.html#${cat}" data-product-category="${cat}"><img src="images/${f}.jpg" alt="${n}, ${m}" loading="lazy" width="520" height="416"><div><em>${m}</em><h3>${n}</h3><p>${d}</p><span class="pc-go" aria-hidden="true">↗</span></div></a>`
             ).join(""));
 
             let raf = 0;
