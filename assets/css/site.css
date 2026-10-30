@@ -7296,3 +7296,7 @@ iframe {
                 transition: none !important
             }
         }
+
+.products-toggle.active .products-chevron {
+    stroke: currentColor;
+}

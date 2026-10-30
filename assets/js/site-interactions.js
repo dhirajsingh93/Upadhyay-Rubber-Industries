@@ -21,6 +21,40 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchBtn = document.querySelector("#searchBtn");
 
   // =========================
+  // ACTIVE NAV LINK SYNC
+  // =========================
+  function syncActiveNavLink() {
+    if (!nav) return;
+    const path = window.location.pathname.toLowerCase();
+    const filename = path.split("/").pop() || "index.html";
+
+    const navLinks = nav.querySelectorAll(".nav-link");
+    navLinks.forEach((link) => {
+      let isCurrent = false;
+      const href = (link.getAttribute("href") || "").toLowerCase().split("#")[0].split("/").pop();
+
+      if (link.id === "productsToggle") {
+        isCurrent = filename.includes("product");
+      } else if (filename === "" || filename === "index.html") {
+        isCurrent = href === "" || href === "index.html" || link.getAttribute("href") === "#home";
+      } else if (href && (filename === href || filename.replace(".html", "") === href.replace(".html", ""))) {
+        isCurrent = true;
+      }
+
+      if (isCurrent) {
+        link.classList.add("active");
+        link.setAttribute("aria-current", "page");
+      } else {
+        link.classList.remove("active");
+        link.removeAttribute("aria-current");
+      }
+    });
+  }
+
+  syncActiveNavLink();
+
+
+  // =========================
   // HERO SLIDES
   // =========================
   const heroScenes = [
