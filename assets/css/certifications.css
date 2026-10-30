@@ -1,0 +1,1154 @@
+/* Page-wide responsive refinements. */
+/* ==========================================
+   PAGE-WIDE RESPONSIVE SAFEGUARDS
+========================================== */
+
+/* Prevent horizontal overflow */
+html {
+    width: 100%;
+    overflow-x: clip;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    margin: 0;
+    overflow-x: clip;
+}
+
+img {
+    max-width: 100%;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Keep all major sections within viewport */
+.cf,
+.cf-sec,
+.ft,
+.ft-top,
+.ft-grid,
+.about-hero {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.cf-wrap,
+.ft-wrap {
+    width: min(1200px, 90%);
+    margin-inline: auto;
+}
+
+/* ==========================================
+   HERO SECTION
+========================================== */
+
+.about-hero {
+    width: 100%;
+    min-height: 520px;
+    padding: 80px max(5%, calc((100vw - 1400px) / 2));
+    box-sizing: border-box;
+}
+
+.about-hero-content {
+    width: 100%;
+    max-width: 48%;
+}
+
+.about-hero h1 {
+    overflow-wrap: break-word;
+}
+
+.about-hero-content > p:not(.about-eyebrow) {
+    max-width: 560px;
+}
+
+.about-hero-image {
+    background-position: center;
+    background-size: cover;
+}
+
+.about-hero::after {
+    background-position: center;
+    background-size: cover;
+}
+
+/* Move Hero Section Down */
+.about-hero {
+    margin-top: 80px;
+}
+
+/* ==========================================
+   CERTIFICATION SECTION
+========================================== */
+
+.cf-cert-grid {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    align-items: start;
+    gap: clamp(24px, 4vw, 52px);
+}
+
+.cf-fig,
+.cf-card,
+.cf-about-text,
+.cf-points,
+.cf-grid article {
+    min-width: 0;
+}
+
+.cf-open img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.cf-card h2,
+.cf-about h2,
+.cf-head h2 {
+    overflow-wrap: anywhere;
+}
+
+.cf-list dd {
+    overflow-wrap: anywhere;
+}
+
+.cf-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* ==========================================
+   HEADER / NAVIGATION
+========================================== */
+
+.header {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.header .logo-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.nav-link {
+    white-space: normal;
+}
+
+.products-menu {
+    max-width: min(95vw, 1000px);
+}
+
+.products-menu-card img {
+    object-fit: cover;
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.ft-grid {
+    grid-template-columns:
+        minmax(0, 1.3fr)
+        minmax(0, 0.8fr)
+        minmax(0, 1fr)
+        minmax(0, 1.3fr);
+    gap: 32px;
+}
+
+.ft-grid > * {
+    min-width: 0;
+}
+
+.ft-contact a,
+.ft-list a {
+    overflow-wrap: anywhere;
+}
+
+.ft-cta > * {
+    min-width: 0;
+}
+
+.ft-actions {
+    flex-wrap: wrap;
+}
+
+.ft-btn {
+    box-sizing: border-box;
+}
+
+/* ==========================================
+   TABLETS — 1000px
+========================================== */
+
+@media (max-width: 1000px) {
+
+    .about-hero {
+        min-height: 470px;
+        padding: 70px 5%;
+    }
+
+    .about-hero-content {
+        max-width: 55%;
+    }
+
+    .about-hero::after {
+        right: 0;
+        width: 52%;
+    }
+
+    .cf-cert-grid {
+        grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+        gap: 28px;
+    }
+
+    .cf-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .cf-about-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 32px;
+    }
+
+    .ft-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 36px 28px;
+    }
+
+    .ft-cta {
+        padding: 32px;
+    }
+}
+
+/* ==========================================
+   MOBILE NAVIGATION — 760px
+========================================== */
+
+@media (max-width: 760px) {
+
+    .header {
+        gap: 12px;
+    }
+
+    /*
+      Your existing site-interactions.js should control
+      the mobile navigation and menu-toggle button.
+      Do not force .nav to display or hide here because
+      that could conflict with your existing JS.
+    */
+
+    .nav-link {
+        font-size: 15px;
+    }
+
+    .search-btn {
+        flex-shrink: 0;
+    }
+
+    .quote-btn {
+        white-space: nowrap;
+    }
+
+    .about-hero {
+        min-height: 440px;
+        padding: 70px 6% 100px;
+    }
+
+    .about-hero-content {
+        max-width: 62%;
+    }
+
+    .about-hero h1 {
+        font-size: clamp(34px, 6vw, 48px);
+    }
+
+    .about-hero::after {
+        top: 15%;
+        width: 50%;
+        height: 68%;
+        border-radius: 100px 0 0 100px;
+    }
+
+    .about-hero-stamp {
+        right: 6%;
+        bottom: 24px;
+    }
+
+    .cf-sec {
+        padding-block: 48px;
+    }
+
+    .cf-cert-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 28px;
+    }
+
+    .cf-fig {
+        position: static;
+        width: min(100%, 420px);
+        margin-inline: auto;
+    }
+
+    .cf-card h2 {
+        font-size: clamp(28px, 6vw, 40px);
+    }
+
+    .cf-about-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .cf-points li {
+        padding: 16px;
+    }
+
+    .cf-quote {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .ft-top {
+        padding-top: 44px;
+    }
+
+    .ft-cta {
+        padding: 26px 22px;
+        border-radius: 20px;
+    }
+
+    .ft-cta h2 {
+        font-size: clamp(26px, 6vw, 34px);
+    }
+
+    .ft-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 30px 22px;
+        padding-block: 42px;
+    }
+}
+
+/* ==========================================
+   SMALL PHONES — 520px
+========================================== */
+
+@media (max-width: 520px) {
+
+    .cf-wrap,
+    .ft-wrap {
+        width: 90%;
+    }
+
+    /* Hero */
+    .about-hero {
+        min-height: 500px;
+        align-items: flex-start;
+        padding: 100px 6% 110px;
+    }
+
+    .about-hero-content {
+        max-width: 100%;
+    }
+
+    .about-eyebrow {
+        gap: 8px;
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        flex-wrap: wrap;
+    }
+
+    .about-hero h1 {
+        margin-top: 16px;
+        font-size: clamp(34px, 9vw, 44px);
+        line-height: 1.06;
+    }
+
+    .about-hero-content > p:not(.about-eyebrow) {
+        margin-top: 16px;
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .about-hero-link {
+        margin-top: 20px;
+        gap: 12px;
+        font-size: 14px;
+    }
+
+    .about-hero-link span {
+        width: 36px;
+        height: 36px;
+    }
+
+    .about-hero::after {
+        top: auto;
+        right: -12%;
+        bottom: 0;
+        width: 76%;
+        height: 35%;
+        border-radius: 90px 0 0 0;
+        opacity: 0.3;
+    }
+
+    .about-hero-stamp {
+        right: 6%;
+        bottom: 20px;
+        gap: 10px;
+    }
+
+    .about-hero-stamp strong {
+        font-size: 30px;
+    }
+
+    .about-hero-stamp span {
+        font-size: 9px;
+    }
+
+    /* Certificate details */
+    .cf-sec {
+        padding-block: 40px;
+    }
+
+    .cf-badge {
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+
+    .cf-list > div {
+        grid-template-columns: 38px minmax(0, 1fr);
+        column-gap: 12px;
+        padding-block: 14px;
+    }
+
+    .cf-list i {
+        width: 38px;
+        height: 38px;
+        font-size: 14px;
+    }
+
+    .cf-list dt {
+        font-size: 13px;
+    }
+
+    .cf-list dd {
+        font-size: 15px;
+    }
+
+    .cf-list dd small {
+        font-size: 12px;
+    }
+
+    .cf-actions {
+        flex-direction: column;
+    }
+
+    .cf-actions > * {
+        width: 100%;
+    }
+
+    .cf-btn,
+    .cf-ghost {
+        min-height: 48px;
+    }
+
+    /* Quality information cards */
+    .cf-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+    }
+
+    .cf-grid article {
+        padding: 22px;
+    }
+
+    .cf-points li {
+        grid-template-columns: 42px minmax(0, 1fr);
+        gap: 12px;
+        padding: 14px;
+    }
+
+    .cf-points i {
+        width: 42px;
+        height: 42px;
+        font-size: 16px;
+    }
+
+    .cf-points b {
+        font-size: 16px;
+    }
+
+    .cf-points span {
+        font-size: 14px;
+    }
+
+    .cf-quote {
+        padding: 24px 20px;
+        border-radius: 18px;
+    }
+
+    .cf-quote p {
+        font-size: 23px;
+    }
+
+    .cf-quote span {
+        font-size: 13px;
+    }
+
+    /* Footer */
+    .ft-cta {
+        padding: 24px 18px;
+    }
+
+    .ft-cta p {
+        font-size: 14px;
+    }
+
+    .ft-actions {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        width: 100%;
+    }
+
+    .ft-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 16px;
+        font-size: 14px;
+    }
+
+    .ft-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 30px;
+        padding-top: 36px;
+        padding-bottom: 34px;
+    }
+
+    .ft-brand p {
+        max-width: 100%;
+        font-size: 14px;
+    }
+
+    .ft-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding-top: 18px;
+        padding-bottom: 90px;
+        font-size: 12px;
+    }
+
+    /* Certificate fullscreen viewer */
+    .cf-tools {
+        padding: 12px;
+    }
+
+    .cf-stage {
+        padding-inline: 10px;
+    }
+
+    .cf-stage img {
+        max-width: 100%;
+        max-height: calc(100dvh - 90px);
+    }
+
+    /* Floating WhatsApp */
+    .ft-wa {
+        width: 52px;
+        height: 52px;
+        right: 14px;
+        bottom: 14px;
+        font-size: 27px;
+    }
+
+    .ft-wa-tooltip {
+        display: none;
+    }
+}
+
+/* ==========================================
+   VERY SMALL PHONES — 360px
+========================================== */
+
+@media (max-width: 360px) {
+
+    .about-hero {
+        padding-inline: 5%;
+    }
+
+    .about-hero h1 {
+        font-size: 32px;
+    }
+
+    .cf-wrap,
+    .ft-wrap {
+        width: 92%;
+    }
+
+    .cf-card h2,
+    .cf-about h2,
+    .cf-head h2 {
+        font-size: 27px;
+    }
+
+    .cf-points li {
+        grid-template-columns: 36px minmax(0, 1fr);
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .cf-points i {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+    }
+
+    .ft-cta {
+        padding-inline: 16px;
+    }
+}
+
+/* ==========================================
+   ACCESSIBILITY
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Certification content and certificate viewer. */
+.cf {
+            --navy: #0a2240;
+            --blue: #0b6aa8;
+            --mint: #a9e7df;
+            --tint: #e3f5f3;
+            --ink: #0b1f36;
+            --mut: #52677c;
+            --line: #d6e4ea;
+            --hdr: 84px
+        }
+
+        .cf * {
+            box-sizing: border-box
+        }
+
+        .cf-wrap {
+            width: min(1200px, 90%);
+            margin-inline: auto
+        }
+
+        .cf-sec {
+            padding: clamp(48px, 7vw, 80px) 0;
+            background: #fff;
+            color: var(--ink);
+            font-family: 'Outfit', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            scroll-margin-top: var(--hdr)
+        }
+
+        .cf-sec :focus-visible,
+        .cf-dialog :focus-visible {
+            outline: 3px solid var(--blue);
+            outline-offset: 3px
+        }
+
+        .cf-sec a {
+            color: var(--blue)
+        }
+
+        .cf-sec h2,
+        .cf-sec h3 {
+            margin: 0;
+            font-weight: 600;
+            letter-spacing: -.03em
+        }
+
+        /* certificate + details */
+        .cf-cert-grid {
+            display: grid;
+            grid-template-columns: minmax(0, clamp(260px, 36vw, 440px)) minmax(0, 1fr);
+            gap: clamp(28px, 5vw, 56px);
+            align-items: start
+        }
+
+        .cf-fig {
+            margin: 0;
+            position: sticky;
+            top: calc(var(--hdr) + 20px)
+        }
+
+        .cf-open {
+            position: relative;
+            display: block;
+            width: 100%;
+            padding: 0;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            overflow: hidden;
+            background: #fff;
+            cursor: zoom-in;
+            box-shadow: 0 18px 44px rgba(10, 34, 64, .12)
+        }
+
+        .cf-open img {
+            display: block;
+            width: 100%;
+            height: auto
+        }
+
+        .cf-open span {
+            position: absolute;
+            right: 12px;
+            bottom: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 15px;
+            border-radius: 999px;
+            background: var(--navy);
+            color: #fff;
+            font: 500 14px 'Outfit', system-ui, sans-serif;
+            transition: background .2s
+        }
+
+        .cf-open:hover span {
+            background: var(--blue)
+        }
+
+        .cf-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 16px;
+            border-radius: 999px;
+            background: var(--tint);
+            color: #0a5d75;
+            font-size: 15px;
+            font-weight: 600
+        }
+
+        .cf-card h2 {
+            margin-top: 18px;
+            font-size: clamp(28px, 3.6vw, 44px);
+            line-height: 1.05
+        }
+
+        .cf-card>p {
+            margin: 12px 0 0;
+            font-size: clamp(16px, 1.6vw, 17px);
+            line-height: 1.6;
+            color: var(--mut)
+        }
+
+        .cf-list {
+            display: grid;
+            margin: 26px 0 0
+        }
+
+        .cf-list>div {
+            display: grid;
+            grid-template-columns: 44px minmax(0, 1fr);
+            column-gap: 16px;
+            padding: 16px 0;
+            border-top: 1px solid var(--line)
+        }
+
+        .cf-list>div:last-child {
+            border-bottom: 1px solid var(--line)
+        }
+
+        .cf-list i {
+            grid-row: span 2;
+            display: grid;
+            place-items: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 13px;
+            background: var(--navy);
+            color: var(--mint);
+            font-size: 17px
+        }
+
+        .cf-list dt {
+            font-size: 14px;
+            color: var(--mut)
+        }
+
+        .cf-list dd {
+            margin: 2px 0 0;
+            font-size: clamp(16px, 1.6vw, 17px);
+            font-weight: 500;
+            line-height: 1.4;
+            overflow-wrap: anywhere
+        }
+
+        .cf-list dd small {
+            display: block;
+            margin-top: 4px;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.5;
+            color: var(--mut)
+        }
+
+        .cf-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 26px
+        }
+
+        .cf-btn,
+        .cf-ghost {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 50px;
+            border-radius: 999px;
+            font: 500 15px 'Outfit', system-ui, sans-serif;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background .2s, color .2s, border-color .2s
+        }
+
+        .cf-btn {
+            padding: 0 26px;
+            border: 0;
+            background: var(--navy);
+            color: #fff;
+            font-weight: 600
+        }
+
+        .cf-btn:hover {
+            background: var(--blue)
+        }
+
+        .cf-sec a.cf-ghost {
+            padding: 0 22px;
+            border: 1px solid #b9ccd6;
+            background: #fff;
+            color: var(--navy)
+        }
+
+        .cf-sec a.cf-ghost:hover {
+            background: var(--navy);
+            border-color: var(--navy);
+            color: var(--mint)
+        }
+
+        /* shared section heading */
+        .cf-head {
+            max-width: 640px;
+            margin-bottom: clamp(24px, 4vw, 36px)
+        }
+
+        .cf-head h2 {
+            font-size: clamp(30px, 4.4vw, 48px);
+            line-height: 1.04
+        }
+
+        .cf-head p {
+            margin: 12px 0 0;
+            font-size: clamp(16px, 1.6vw, 17px);
+            line-height: 1.6;
+            color: var(--mut)
+        }
+
+        /* about the standard */
+        .cf-about {
+            background: #eef6f8
+        }
+
+        .cf-about-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+            gap: clamp(28px, 5vw, 64px);
+            align-items: start
+        }
+
+        .cf-about h2 {
+            font-size: clamp(30px, 4.4vw, 48px);
+            line-height: 1.04
+        }
+
+        .cf-about-text p {
+            margin: 16px 0 0;
+            font-size: clamp(16px, 1.6vw, 18px);
+            line-height: 1.7;
+            color: var(--mut)
+        }
+
+        .cf-points {
+            display: grid;
+            gap: 12px;
+            margin: 0;
+            padding: 0;
+            list-style: none
+        }
+
+        .cf-points li {
+            display: grid;
+            grid-template-columns: 48px minmax(0, 1fr);
+            column-gap: 16px;
+            align-items: start;
+            padding: 18px;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            background: #fff
+        }
+
+        .cf-points i {
+            grid-row: span 2;
+            display: grid;
+            place-items: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: var(--navy);
+            color: var(--mint);
+            font-size: 18px
+        }
+
+        .cf-points b {
+            display: block;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: -.01em
+        }
+
+        .cf-points span {
+            margin-top: 2px;
+            font-size: 15px;
+            line-height: 1.55;
+            color: var(--mut)
+        }
+
+        /* what it means */
+        .cf-grid article {
+            position: relative;
+            padding: 24px 22px 26px;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            background: #fff;
+            transition: border-color .2s, box-shadow .2s
+        }
+
+        .cf-grid article:hover {
+            border-color: var(--blue);
+            box-shadow: 0 12px 30px rgba(10, 34, 64, .09)
+        }
+
+        .cf-grid i {
+            display: grid;
+            place-items: center;
+            width: 52px;
+            height: 52px;
+            margin-bottom: 18px;
+            border-radius: 15px;
+            background: var(--navy);
+            color: var(--mint);
+            font-size: 20px
+        }
+
+        .cf-grid h3 {
+            font-size: clamp(20px, 2vw, 23px);
+            line-height: 1.15
+        }
+
+        .cf-grid p {
+            margin: 10px 0 0;
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--mut)
+        }
+
+        .cf-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 16px
+        }
+
+        .cf-quote {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px 28px;
+            margin-top: clamp(24px, 4vw, 36px);
+            padding: clamp(26px, 4vw, 40px);
+            border-radius: 24px;
+            color: #fff;
+            background: radial-gradient(circle at 100% 0, rgba(169, 231, 223, .22), transparent 55%), var(--navy)
+        }
+
+        .cf-quote p {
+            display: flex;
+            gap: 14px;
+            margin: 0;
+            font-size: clamp(22px, 3vw, 32px);
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -.02em
+        }
+
+        .cf-quote p i {
+            margin-top: 4px;
+            font-size: .8em;
+            color: var(--mint)
+        }
+
+        .cf-quote span {
+            font-size: 15px;
+            color: var(--mint)
+        }
+
+        /* full-screen viewer */
+        .cf-dialog {
+            width: 100%;
+            height: 100%;
+            max-width: none;
+            max-height: none;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            background: rgba(7, 26, 53, .95);
+            color: #fff
+        }
+
+        .cf-dialog:not([open]) {
+            display: none
+        }
+
+        .cf-dialog[open] {
+            display: flex;
+            flex-direction: column
+        }
+
+        .cf-dialog :focus-visible {
+            outline-color: var(--mint)
+        }
+
+        .cf-tools {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            padding: max(14px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) 14px 16px
+        }
+
+        .cf-tools button {
+            display: grid;
+            place-items: center;
+            width: 44px;
+            height: 44px;
+            border: 1px solid rgba(255, 255, 255, .3);
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .08);
+            color: #fff;
+            font-size: 17px;
+            cursor: pointer;
+            transition: background .2s, color .2s
+        }
+
+        .cf-tools button:hover {
+            background: var(--mint);
+            border-color: var(--mint);
+            color: var(--navy)
+        }
+
+        .cf-stage {
+            flex: 1;
+            min-height: 0;
+            display: grid;
+            overflow: auto;
+            padding: 0 16px max(16px, env(safe-area-inset-bottom))
+        }
+
+        .cf-stage img {
+            display: block;
+            margin: auto;
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: calc(100dvh - 100px);
+            object-fit: contain;
+            border-radius: 6px;
+            background: #fff;
+            cursor: zoom-in
+        }
+
+        .cf-dialog.is-zoom .cf-stage img {
+            max-width: none;
+            max-height: none;
+            width: min(1400px, 260vw);
+            cursor: zoom-out
+        }
+
+        @media(max-width:900px) {
+            .cf-about-grid {
+                grid-template-columns: minmax(0, 1fr)
+            }
+        }
+
+        /* tablet */
+        @media(max-width:1000px) {
+            .cf-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr))
+            }
+        }
+
+        /* small tablet and phone: certificate stacks above its details */
+        @media(max-width:760px) {
+            .cf-cert-grid {
+                grid-template-columns: minmax(0, 1fr)
+            }
+
+            .cf-fig {
+                position: static;
+                max-width: 420px;
+                margin-inline: auto
+            }
+        }
+
+        @media(max-width:560px) {
+            .cf-grid {
+                grid-template-columns: minmax(0, 1fr)
+            }
+
+            .cf-actions>* {
+                width: 100%
+            }
+
+            .cf-list>div {
+                grid-template-columns: 40px minmax(0, 1fr);
+                column-gap: 14px
+            }
+
+            .cf-list i {
+                width: 40px;
+                height: 40px;
+                font-size: 15px
+            }
+
+            .cf-quote {
+                border-radius: 20px
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            .cf * {
+                transition: none !important
+            }
+        }
