@@ -632,12 +632,17 @@ document.addEventListener("DOMContentLoaded", () => {
   // =========================
   // INITIALIZE
   // =========================
+  // Keep the shared copyright year current on pages that include the footer.
+  const footerYear = document.querySelector("#footer-year");
+  if (footerYear) {
+    footerYear.textContent = String(new Date().getFullYear());
+  }
+
   setHeroStep(0);
   updateScrollState();
 });
 
 
 //done here-----
-
 
 
