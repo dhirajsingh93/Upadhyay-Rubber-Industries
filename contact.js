@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
         statusMessage.classList.remove("is-success", "is-error");
 
         if (typeof emailjs === "undefined") {
-            statusMessage.textContent = "✕ Email service is currently unavailable. Please contact us directly via WhatsApp (+91 88104 22099) or email (info@upadhyayrubber.com).";
+            statusMessage.textContent = "✕ Email service is currently unavailable. Please contact us directly via WhatsApp (+91 88104 22099) or email (upadhyayrubber@gmail.com).";
             statusMessage.classList.add("is-error");
             return;
         }
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } catch (error) {
             console.error("EmailJS Error:", error);
             statusMessage.textContent =
-                "✕ Sorry, your enquiry could not be sent. Please try again or contact us directly via WhatsApp or info@upadhyayrubber.com.";
+                "✕ Sorry, your enquiry could not be sent. Please try again or contact us directly via WhatsApp or upadhyayrubber@gmail.com.";
             statusMessage.classList.add("is-error");
 
         } finally {
