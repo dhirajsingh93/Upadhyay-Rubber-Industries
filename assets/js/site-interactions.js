@@ -223,10 +223,10 @@ document.addEventListener("DOMContentLoaded", () => {
         nav?.classList.contains("open") ||
         productsToggle?.getAttribute("aria-expanded") === "true";
 
-      header.classList.toggle("scrolled", currentScrollY > 35);
+      header.classList.toggle("scrolled", currentScrollY > 25);
 
       if (
-        currentScrollY <= 35 ||
+        currentScrollY <= 25 ||
         navigationOpen ||
         scrollDelta < -8
       ) {
